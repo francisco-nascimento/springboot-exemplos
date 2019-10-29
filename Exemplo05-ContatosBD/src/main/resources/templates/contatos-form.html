@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Contatos :: Adicionar</title>
+<link
+	href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
+	rel="stylesheet" id="bootstrap-css">
+<script
+	src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<body>
+
+<nav class="navbar navbar-inverse">
+  <ul class="nav navbar-nav">
+    <li><a href="/exibirContato">Cadastrar Contatos</a></li>
+    <li><a href="/listarContatos">Listar Contatos</a></li>
+  </ul>
+</nav>
+
+	<div class="container col-sm-12 col-md-6 col-md-offset-2" >
+		<form action="/salvarContato" th:object="${contato}" method="post">
+			<div class="form-group">
+				<label for="nome">Nome</label> <input type="text" th:field="*{nome}"
+					class="form-control" id="nome" placeholder="Nome do contato">
+			</div>
+			<div class="form-group">
+				<label for="telefone">Telefone</label> <input type="tel"
+					th:field="*{telefone}" class="form-control" id="telefone" placeholder="Telefone do contato">
+			</div>
+			<div class="form-group">
+				<label for="nome">E-mail</label> <input type="email" th:field="*{email}"
+					class="form-control" id="nome" aria-describedby="emailHelp"
+					placeholder="E-mail do contato">
+			</div>
+			<div class="form-group form-check">
+				<label for="apps">App de mensagens</label> <Br/>
+				<input type="checkbox" class="form-check-input"
+					th:field="*{apps}" th:value="WhatsApp" />
+					<label class="form-check-label">WhatsApp</label>
+				<input type="checkbox" class="form-check-input" th:field="*{apps}" 
+					th:value="Telegram" />
+					<label class="form-check-label">Telegram</label>
+				<input type="checkbox" class="form-check-input"
+					th:field="*{apps}" th:value="Slack" />
+					<label class="form-check-label">Slack</label>
+			</div>
+			<div class="form-group form-check">
+				<label for="apps">Grupo</label><Br/>
+					<input type="radio" class="form-check-input"
+					th:field="*{grupo}" th:value="F" />
+					<label class="form-check-label">Família</label>
+					<input type="radio" class="form-check-input" th:field="*{grupo}" th:value="T" />
+					<label class="form-check-label">Trabalho</label>
+					<input type="radio" class="form-check-input" th:field="*{grupo}" th:value="A" />
+					<label class="form-check-label">Amigos</label> 
+			</div>
+			<div class="form-group">
+				<label for="data">Data de Nascimento</label> <input type="date" class="form-control"
+					th:field="*{dataNascimento}" />
+			</div>
+			<div class="form-group">
+				<label for="estado">Estado</label> 
+				<select class="form-control" id="estado"
+					th:field="*{estado}">
+					<option th:value="''">Selecione</option>
+					<option th:value="PA">PA</option>
+					<option th:value="PB">PB</option>
+					<option th:value="PE">PE</option>
+					<option th:value="PR">PR</option>
+				</select>
+			</div>
+			<button type="submit" class="btn btn-primary">Enviar</button>
+		</form>
+
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Contatos :: Listar</title>
+<link
+	href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
+	rel="stylesheet" id="bootstrap-css">
+<script
+	src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+</head>
+<body>
+	<nav class="navbar navbar-inverse">
+		<ul class="nav navbar-nav">
+			<li><a href="/exibirContato">Cadastrar Contatos</a></li>
+			<li><a href="/listarContatos">Listar Contatos</a></li>
+		</ul>
+	</nav>
+	<div class="contatiner col-sm-12 col-md-6 col-md-offset-2">
+		<table class="table table-dark">
+			<tr>
+				<th>Nome</th>
+				<th>Telefone</th>
+				<th>E-mail</th>
+				<th>Acões</th>
+			</tr>
+			<tr th:each="cont : ${lista}">
+				<td th:text="${cont.nome}"></td>
+				<td th:text="${cont.telefone}"></td>
+				<td th:text="${cont.email}">
+				<td><a th:href="@{/editarContato(email=${cont.email})}">Editar</a>&nbsp;&nbsp;
+					<a th:href="@{/removerContato(email=${cont.email})}">Remover</a></td>
+					<!-- http://localhost:8080/removerContato?email=gloria.maria@gmail.com -->
+			</tr>
+		</table>
+		<hr />
+	</div>
+</body>
+</html>
