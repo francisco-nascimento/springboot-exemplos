@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head th:replace="header :: headerBlock">
+<style type="text/css"></style>
+</head>
+
+<body>
+
+	<div th:replace="header :: navBar"></div>
+
+	<nav aria-label="breadcrumb">
+		<ol class="breadcrumb">
+			<li class="breadcrumb-item">Home</li>
+			<li class="breadcrumb-item">Cadastro</li>
+			<li class="breadcrumb-item active" aria-current="page"><a href="">Cadastrar Produto</a></li>
+		</ol>
+	</nav>
+
+	<div class="container col-sm-12 col-md-6 col-md-offset-2" >
+		<form action="/salvarProduto" method="post" th:object="${produto}">
+			<input type="hidden" th:field="*{codigo}">
+			<div class="form-group">
+				<label for="nome">Nome</label> 
+				<input type="text" class="form-control" id="nome" placeholder="Nome do produto" th:field="*{nome}">
+			</div>
+			<div class="form-group">
+				<label for="categoria">Categoria</label> 
+				<select id="categoria" class="form-control"  th:field="*{categoria}">
+					<option value="0">Selecione uma categoria</option>
+					<option th:each="cat : ${listaCategorias}" th:text="${cat.nome}" th:value="${cat.codigo}" />
+				</select>
+			</div>
+			<div class="form-group">
+				<label for="estoque">Estoque</label> 
+				<input type="number" class="form-control" id="estoque"
+					th:field="*{estoque}" 
+					placeholder="Quantidade no estoque">
+			</div>
+			<div class="form-group">
+				<label for="preco">Preço</label> 
+				<input type="number" min="0" step="0.01" data-number-to-fixed="2" data-number-stepfactor="100" class="form-control currency" 
+					id="preco" placeholder="Preço do produto" th:field="*{preco}">
+			</div>			
+			<button type="submit" class="btn btn-primary">Enviar</button>
+			<hr/>
+			<a href="/listarProdutos" class="btn btn-primary btn-sm" role="button" aria-pressed="true">Voltar para a lista</a>
+			
+		</form>
+	</div>
+
+</body>
+</html>

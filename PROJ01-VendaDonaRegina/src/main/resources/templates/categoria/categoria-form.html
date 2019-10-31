@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head th:replace="header :: headerBlock">
+<style type="text/css"></style>
+</head>
+
+<body>
+
+	<div th:replace="header :: navBar"></div>
+
+	<nav aria-label="breadcrumb">
+		<ol class="breadcrumb">
+			<li class="breadcrumb-item">Home</li>
+			<li class="breadcrumb-item">Cadastro</li>
+			<li class="breadcrumb-item active" aria-current="page"><a href="">Cadastrar
+				Categoria</a></li>
+		</ol>
+	</nav>
+
+	<div class="container col-sm-12 col-md-6 col-md-offset-2">
+		<form action="/salvarCategoria" method="post" class="form-horizontal" th:object="${categoria}">
+			<input type="hidden" th:field="*{codigo}">
+			<div class="form-group">
+				<label for="nome">Nome</label> <input type="text" th:field="*{nome}"
+					class="form-control" id="nome" placeholder="Nome da categoria">
+			</div>
+			<button type="submit" class="btn btn-primary">Enviar</button>
+			<hr/>
+			<a href="/listarCategorias" class="btn btn-primary btn-sm" role="button" aria-pressed="true">Voltar para a lista</a>
+		</form>
+	</div>
+</body>
+</html>

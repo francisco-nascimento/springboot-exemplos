@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head th:replace="header :: headerBlock">
+<style type="text/css"></style>
+</head>
+
+<body>
+
+	<div th:replace="header :: navBar"></div>
+
+	<nav aria-label="breadcrumb">
+		<ol class="breadcrumb">
+			<li class="breadcrumb-item">Home</li>
+			<li class="breadcrumb-item">Cadastro</li>
+			<li class="breadcrumb-item active" aria-current="page"><a href="">Cadastrar Cliente</a></li>
+		</ol>
+	</nav>
+
+	<div class="container col-sm-12 col-md-6 col-md-offset-2" >
+		<form action="/salvarCliente" method="post" th:object="${cliente}">
+			<input type="hidden" th:field="*{codigo}"/>
+			<div class="form-group">
+				<label for="nome">Nome Completo</label> 
+				<input type="text" class="form-control" id="nomeCompleto" placeholder="Nome do cliente" th:field="*{nomeCompleto}">
+			</div>
+			<div class="form-group">
+				<label for="nome">Apelido</label> 
+				<input type="text" class="form-control" id="apelido" placeholder="Apelido" th:field="*{apelido}">
+			</div>
+			<div class="form-group">
+				<label for="nome">CPF</label> 
+				<input type="text" class="form-control" id="cpf" placeholder="CPF do cliente" th:field="*{cpf}">
+			</div>
+			<div class="form-group">
+				<label for="nome">Endereço</label>
+				<input type="text" class="form-control" id="endereco" placeholder="Endereço" th:field="*{endereco}">
+			</div>			
+			<div class="form-group">
+				<label for="nome">Telefone</label> 
+				<input type="text" class="form-control" id="telefone" placeholder="Telefone do cliente" th:field="*{telefone}">
+			</div>
+			<div class="form-group">
+				<label for="nome">Dia de pagamento previsto</label>
+				<select class="form-control" id="diaPagamento" th:field="*{diaPagamento}">
+					<option th:each="dia:${#numbers.sequence(1,31)}" th:text="${dia}" th:value="${dia}"></option>
+				</select> 
+			</div>
+			<div class="form-group">
+				<label for="nome">Limite de crédito</label>
+				<input type="text" class="form-control" id="limite" placeholder="Limite de crédito" th:field="*{limiteCredito}">
+			</div>
+			<button type="submit" class="btn btn-primary">Enviar</button>
+			<hr/>
+			<a href="/listarClientes" class="btn btn-primary btn-sm" role="button" aria-pressed="true">Voltar para a lista</a>
+			
+		</form>
+	</div>
+
+</body>
+</html>
