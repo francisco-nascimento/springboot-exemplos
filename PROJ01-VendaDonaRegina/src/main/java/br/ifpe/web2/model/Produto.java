@@ -4,18 +4,30 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.NotBlank;
+
+/*
+ * @OneToOne - simples
+ * @OneToMany - múltiplo
+ * @ManyToOne - simples
+ * @ManyToMany - múltiplo
+ */
 
 @Entity
 public class Produto {
 
 	@Id @GeneratedValue(strategy =GenerationType.AUTO)
 	private Integer codigo;
+	@NotBlank(message = "Nome deve ser preenchido")
 	private String nome;
 	@ManyToOne
 	private Categoria categoria;
 	private double preco;
 	private int estoque;
+	@Lob
+	private byte[] imagem;
 	
 	public Integer getCodigo() {
 		return codigo;
@@ -46,6 +58,12 @@ public class Produto {
 	}
 	public void setEstoque(int estoque) {
 		this.estoque = estoque;
+	}
+	public byte[] getImagem() {
+		return imagem;
+	}
+	public void setImagem(byte[] imagem) {
+		this.imagem = imagem;
 	}
 	
 	

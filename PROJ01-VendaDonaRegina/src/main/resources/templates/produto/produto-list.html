@@ -24,6 +24,7 @@
 
 				<tr>
 					<th>Nome</th>
+					<th>...</th>
 					<th>Preço</th>
 					<th>Qtd Estoque</th>
 					<th>Acões</th>
@@ -31,6 +32,9 @@
 			</thead>
 			<tr th:each="prod : ${lista}">
 				<td th:text="${prod.nome}"></td>
+				<td>
+					<img alt="Image" class="img_prod" th:src="|/imagem/${prod.codigo}|" />
+				</td>
 				<td th:text="${prod.preco}"></td>
 				<td th:text="${prod.estoque}"></td>
 				<td><a th:href="@{/editarProduto(codigo=${prod.codigo})}">Editar</a>&nbsp;&nbsp;

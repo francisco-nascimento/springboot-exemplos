@@ -18,7 +18,7 @@
 	</nav>
 
 	<div class="container col-sm-12 col-md-6 col-md-offset-2" >
-		<form action="/salvarProduto" method="post" th:object="${produto}">
+		<form action="/salvarProduto" method="post" th:object="${produto}" enctype="multipart/form-data">
 			<input type="hidden" th:field="*{codigo}">
 			<div class="form-group">
 				<label for="nome">Nome</label> 
@@ -42,6 +42,16 @@
 				<input type="number" min="0" step="0.01" data-number-to-fixed="2" data-number-stepfactor="100" class="form-control currency" 
 					id="preco" placeholder="Preço do produto" th:field="*{preco}">
 			</div>			
+			<div class="form-group">
+				<label for="imagem">Imagem do produto</label> 
+				<input type="file" class="form-control" 
+					id="imagem" name="fileProduto">
+			</div>			
+			<div th:if="${#fields.hasErrors('*')}">
+				<ul>
+					<li th:each="erro : ${#fields.errors('*')}" th:text="${erro}">
+				</ul>
+			</div>
 			<button type="submit" class="btn btn-primary">Enviar</button>
 			<hr/>
 			<a href="/listarProdutos" class="btn btn-primary btn-sm" role="button" aria-pressed="true">Voltar para a lista</a>
