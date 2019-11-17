@@ -1,0 +1,13 @@
+
+.img_prod {
+	height: 50px;
+	width: 50px;
+}
+
+.img_prod:hover {
+  -webkit-transform: scale(4);
+  -moz-transform: scale(4);
+  -o-transform: scale(4);
+  -ms-transform: scale(4);
+  transform: scale(4);
+}
