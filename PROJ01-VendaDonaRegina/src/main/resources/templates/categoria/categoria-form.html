@@ -13,7 +13,7 @@
 		<ol class="breadcrumb">
 			<li class="breadcrumb-item">Home</li>
 			<li class="breadcrumb-item">Cadastro</li>
-			<li class="breadcrumb-item active" aria-current="page"><a href="">Cadastrar
+			<li class="breadcrumb-item active" aria-current="page"><a href="/exibirFormCategoria">Cadastrar
 				Categoria</a></li>
 		</ol>
 	</nav>
@@ -25,6 +25,12 @@
 				<label for="nome">Nome</label> <input type="text" th:field="*{nome}"
 					class="form-control" id="nome" placeholder="Nome da categoria">
 			</div>
+			<div th:if="${#fields.hasErrors('*')}">
+				<ul>
+					<li th:each="erro : ${#fields.errors('*')}" th:text="${erro}" class="alert-danger">
+				</ul>
+			</div>
+			
 			<button type="submit" class="btn btn-primary">Enviar</button>
 			<hr/>
 			<a href="/listarCategorias" class="btn btn-primary btn-sm" role="button" aria-pressed="true">Voltar para a lista</a>

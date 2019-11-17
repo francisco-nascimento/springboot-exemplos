@@ -6,7 +6,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 /*
  * @OneToOne - simples
@@ -23,8 +26,11 @@ public class Produto {
 	@NotBlank(message = "Nome deve ser preenchido")
 	private String nome;
 	@ManyToOne
+	@NotNull(message = "Categoria deve ser selecionada")
 	private Categoria categoria;
+	@DecimalMin(value = "0.01", message = "Preço mínimo: R$ 0,01")
 	private double preco;
+	@Min(value = 0, message = "Estoque mínimo: 0 unidades")
 	private int estoque;
 	@Lob
 	private byte[] imagem;

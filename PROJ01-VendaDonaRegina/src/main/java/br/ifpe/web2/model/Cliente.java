@@ -4,21 +4,30 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.NotBlank;
+
+import org.hibernate.validator.constraints.Range;
 
 @Entity
 public class Cliente {
 
 	@Id  @GeneratedValue
 	private Integer codigo;
+	@NotBlank(message = "Nome deve ser preenchido")
 	private String nomeCompleto;
 	@Column(length = 30)
 	private String apelido;
 	@Column(length = 14, nullable = false)
+	@NotBlank(message = "CPF deve ser preenchido")
 	private String cpf;
 	private String endereco;
 	private String telefone;
+	@Range(min = 1, max = 31, message = "Dia deve estar entre 1 e 31")
 	private int diaPagamento;
+	@DecimalMin(value= "0.0", message = "Limite de crédito não pode ser negativo")
 	private double limiteCredito;
+	
 	public Integer getCodigo() {
 		return codigo;
 	}

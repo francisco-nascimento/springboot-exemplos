@@ -49,7 +49,7 @@
 			</div>			
 			<div th:if="${#fields.hasErrors('*')}">
 				<ul>
-					<li th:each="erro : ${#fields.errors('*')}" th:text="${erro}">
+					<li th:each="erro : ${#fields.errors('*')}" th:text="${erro}" class="alert-danger">
 				</ul>
 			</div>
 			<button type="submit" class="btn btn-primary">Enviar</button>

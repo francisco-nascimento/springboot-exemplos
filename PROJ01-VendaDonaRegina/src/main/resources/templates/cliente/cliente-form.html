@@ -50,6 +50,12 @@
 				<label for="nome">Limite de crédito</label>
 				<input type="text" class="form-control" id="limite" placeholder="Limite de crédito" th:field="*{limiteCredito}">
 			</div>
+			<div th:if="${#fields.hasErrors('*')}">
+				<ul>
+					<li th:each="erro : ${#fields.errors('*')}" th:text="${erro}" class="alert-danger">
+				</ul>
+			</div>
+			
 			<button type="submit" class="btn btn-primary">Enviar</button>
 			<hr/>
 			<a href="/listarClientes" class="btn btn-primary btn-sm" role="button" aria-pressed="true">Voltar para a lista</a>
