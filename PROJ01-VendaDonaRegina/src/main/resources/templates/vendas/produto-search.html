@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head th:replace="header :: headerBlock">
+<style type="text/css"></style>
+</head>
+
+<body>
+
+	<div th:replace="header :: navBar"></div>
+
+	<nav aria-label="breadcrumb">
+		<ol class="breadcrumb">
+			<li class="breadcrumb-item">Home</li>
+			<li class="breadcrumb-item">Venda</li>
+			<li class="breadcrumb-item active" aria-current="page"><a
+				href="/exibirProdutosVenda">Produtos à venda</a></li>
+		</ol>
+	</nav>
+
+	<div class="container">
+			<br>
+			<p class="text-center">Aproveite nossas ofertas!</p>
+			<h4>Encontre o produto que você deseja:</h4>
+			<form action="/pesquisarProdutos" method="post">
+				<div class="form-inline">
+					<input type="text" class="form-control" id="nome"
+						placeholder="Pesquise pelo nome do produto" name="nomeProduto" size="50" autofocus >
+					<button type="submit" class="btn btn-primary">
+						<i class="fa fa-search" style="font-size: 20px"></i>
+					</button>
+				</div>
+			</form>
+			<hr/>
+		<div class="row">
+			<div class="col-md-3" th:each="prod : ${listaProdutos}">
+				<figure class="card card-product">
+					<div class="img-wrap">
+						<img alt="Image" class="img_prod_maior"
+							th:src="|/imagem/${prod.codigo}|" />
+					</div>
+					<figcaption class="info-wrap">
+						<h6 class="title text-dots">
+							<a href="#" th:text="${prod.nome}"></a>
+						</h6>
+						<div class="action-wrap">
+							<a href="#" class="btn btn-primary btn-sm float-right">Comprar
+							</a>
+							<div class="price-wrap h5">
+								<span class="price-new"><span
+									th:text="|R$ ${#numbers.formatDecimal(prod.preco, 1, 2, 'COMMA')}|"></span></span>
+							</div>
+							<!-- price-wrap.// -->
+						</div>
+						<!-- action-wrap -->
+					</figcaption>
+				</figure>
+				<!-- card // -->
+			</div>
+
+		</div>
+		<!-- row.// -->
+
+
+	</div>
+	<!--container end-->
+</body>
+</html>

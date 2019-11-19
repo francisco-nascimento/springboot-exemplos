@@ -35,10 +35,12 @@
 				<td>
 					<img alt="Image" class="img_prod" th:src="|/imagem/${prod.codigo}|" />
 				</td>
-				<td th:text="${prod.preco}"></td>
+				<td class="text-right text-nowrap" th:text="|R$ ${#numbers.formatDecimal(prod.preco, 1, 2, 'COMMA')}|"></td>
 				<td th:text="${prod.estoque}"></td>
-				<td><a th:href="@{/editarProduto(codigo=${prod.codigo})}">Editar</a>&nbsp;&nbsp;
-					<a th:href="@{/removerProduto(codigo=${prod.codigo})}">Remover</a></td>
+				<td><a th:href="@{/editarProduto(codigo=${prod.codigo})}">
+				<i class='fas fa-pencil-alt' style='font-size:20px'></i>
+				</a>				
+					<a th:href="@{/removerProduto(codigo=${prod.codigo})}"><i class='fas fa-remove' style='font-size:20px'></i></a></td>
 			</tr>
 		</table>
 		<hr />

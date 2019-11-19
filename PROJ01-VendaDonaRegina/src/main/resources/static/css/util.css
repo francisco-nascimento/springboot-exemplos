@@ -11,3 +11,7 @@
   -ms-transform: scale(4);
   transform: scale(4);
 }
+.img_prod_maior{
+	height: 200px;
+	width: 200px;
+}
