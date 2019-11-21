@@ -3,63 +3,80 @@
 
 <th:block th:fragment="headerBlock">
 
-<head>
+	<head>
 
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" >
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
-    
+<!-- Bootstrap CSS -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<link
+	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+	rel="stylesheet">
+<script src='https://kit.fontawesome.com/a076d05399.js'></script>
 
-    <title>Dona Regina :: De tudo tem</title>
 
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" ></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" ></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" ></script>
-    
+<title>Dona Regina :: De tudo tem</title>
 
-    <link rel="stylesheet" href="css/util.css" >
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
-</head>
+
+<link rel="stylesheet" href="css/util.css">
+
+	</head>
 
 </th:block>
 <body>
 
-<th:block th:fragment="navBar">
+	<th:block th:fragment="navBar">
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="/">Venda de Dona Regina</a>
+		<nav class="navbar navbar-expand-sm   navbar-light bg-warning">
+			<button class="navbar-toggler" type="button" data-toggle="collapse"
+				data-target="#navbarTogglerDemo03"
+				aria-controls="navbarTogglerDemo03" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="/" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Cadastro
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="listarCategorias">Categoria</a>
-          <a class="dropdown-item" href="/listarProdutos">Produto</a>
-          <a class="dropdown-item" href="/listarClientes">Cliente</a>
-        </div>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Vendas
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="/exibirProdutosVenda">Registrar venda</a>
-          <a class="dropdown-item" href="#">Encerrar conta</a>
-        </div>
-      </li>      
-    </ul>
-  </div>
-</nav>
+			<div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+				<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+					<li class="nav-item"><a class="nav-link" href="/">Venda de
+							Dona Regina <span class="sr-only">(current)</span>
+					</a></li>
+					<li class="nav-item dropdown dmenu"><a
+						class="nav-link dropdown-toggle" href="#" id="navbardrop"
+						data-toggle="dropdown"> Cadastro </a>
+						<div class="dropdown-menu sm-menu">
+							<a class="dropdown-item" href="/listarCategorias">Categoria</a> <a
+								class="dropdown-item" href="/listarProdutos">Produtos</a> <a
+								class="dropdown-item" href="/listarClientes">Cliente</a>
+						</div></li>
+					<li class="nav-item dropdown dmenu"><a
+						class="nav-link dropdown-toggle" href="#" id="navbardrop"
+						data-toggle="dropdown"> Vendas </a>
+						<div class="dropdown-menu sm-menu">
+							<a class="dropdown-item" href="/exibirProdutosVenda">Pesquisar
+								Produtos</a> <a class="dropdown-item" href="#">Vendas realizadas</a>
+							<a class="dropdown-item" href="#">Encerrar Conta</a>
+						</div></li>
 
-</th:block>
+				</ul>
+				<div class="social-part">
+					<i class="fa fa-facebook" aria-hidden="true"></i> <i
+						class="fa fa-twitter" aria-hidden="true"></i> <i
+						class="fa fa-instagram" aria-hidden="true"></i>
+				</div>
+			</div>
+		</nav>
+
+	</th:block>
 
 </body>
 </html>
